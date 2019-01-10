@@ -193,14 +193,14 @@ class NoValidationSelectMultipleField(SelectMultipleField):
 
 
 class ProjectForm(FlaskForm):
-    title = StringField('Project Title', validators=[InputRequired()])
-    country = StringField('Country')
-    city = StringField('City')
-    local_authority = StringField('Local Authority')
-    involvement = StringField('Individual Project Involvement', validators=[InputRequired()])
-    date_of_project = DateField('Date of Project', id='date_of_project', format='%Y-%m-%d', validators=[InputRequired()])
-    application = SelectField('4D Software Application Used', choices=[(ind, software_names[ind]) for ind in range(len(software_names))], coerce=int)
-    version = StringField('Software Application Version', validators=[InputRequired()])
+    title = StringField('Project Title', validators=[InputRequired()], render_kw={'autocomplete': 'nothing'})
+    country = StringField('Country', render_kw={'autocomplete': 'nothing'})
+    city = StringField('City', render_kw={'autocomplete': 'nothing'})
+    local_authority = StringField('Local Authority', render_kw={'autocomplete': 'nothing'})
+    involvement = StringField('Individual Project Involvement', validators=[InputRequired()], render_kw={'autocomplete': 'nothing'})
+    date_of_project = DateField('Date of Project', id='date_of_project', format='%Y-%m-%d', validators=[InputRequired()], render_kw={'autocomplete': 'nothing'})
+    application = SelectField('4D Software Application Used', choices=[(ind, software_names[ind]) for ind in range(len(software_names))], coerce=int, render_kw={'autocomplete': 'nothing'})
+    version = StringField('Software Application Version', validators=[InputRequired()], render_kw={'autocomplete': 'nothing'})
     email = StringField('E-mail', validators=[InputRequired(), Email(message='I don\'t like your email.')])
 
     def reset(self):
@@ -256,9 +256,9 @@ class RecommendForm(FlaskForm):
     cm_restriction7 = SelectField('Return on Investment (ROI)', choices=[(0, 'Major Importance'), (1, 'Important'), (2, 'Not so Important')], coerce=int)
     cm_restriction8 = SelectField('Cost estimation', choices=[(0, 'Precise'), (1, 'Narrow Margin'), (2, 'Standard Margin')], coerce=int)
     cm_restriction9 = SelectField('Cost control', choices=[(0, 'Total'), (1, 'General'), (2, 'Minimal')], coerce=int)
-    country = StringField('Country')
-    city = StringField('City')
-    local_authority = StringField('Local Authority')
+    country = StringField('Country', render_kw={'autocomplete': 'nothing'})
+    city = StringField('City', render_kw={'autocomplete': 'nothing'})
+    local_authority = StringField('Local Authority', render_kw={'autocomplete': 'nothing'})
 
     def reset(self):
         blank_data = {'csrf': self.csrf_token}
@@ -267,8 +267,8 @@ class RecommendForm(FlaskForm):
 
 class UserAdminForm(FlaskForm):
     email = StringField('E-mail')
-    first_name = StringField('First Name')
-    last_name = StringField('Last Name')
+    first_name = StringField('First Name', render_kw={'autocomplete': 'nothing'})
+    last_name = StringField('Last Name', render_kw={'autocomplete': 'nothing'})
     roles = NoValidationSelectMultipleField('Roles', choices=[], coerce=int)
 
     def reset(self):
@@ -750,7 +750,7 @@ def mynavbar():
              Subgroup('Website Design',
                       View('Introduction', 'introduction'),
                       View('Design', 'instruction')),
-             Subgroup('Successful Construction Management and 4D BIM',
+             Subgroup('Successful Construction Management',
                       View('Improving Construction Management with 4D BIM', 'management')),
              Subgroup('Best Practice 4D BIM',
                       View('Best Practice Evaluation', 'bim_tool'),
