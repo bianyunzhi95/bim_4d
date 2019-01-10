@@ -7,6 +7,3 @@ flask_user
 flask_babelex
 flask_nav
 flask_uploads
-smtplib
-ssl
-email
