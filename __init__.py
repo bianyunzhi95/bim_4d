@@ -164,18 +164,16 @@ def max_score(lst):
 
 def load_projects():
     global projects
-    try:
-        if os.path.exists(os.path.dirname(__file__) + '/projects.json'):
-            with open(os.path.dirname(__file__) + '/projects.json', 'r') as fp:
-                projects = json.load(fp)
-    except:
-        pass
+    if os.path.exists(os.path.dirname(__file__) + '/projects.json'):
+        with open(os.path.dirname(__file__) + '/projects.json', 'r') as fp:
+            projects = json.load(fp)
 
 
 def save_projects():
     global projects
     with open(os.path.dirname(__file__) + '/projects.json', 'w') as fp:
         json.dump(projects, fp)
+
 
 def compare_list(a, b):
     if len(a) != len(b):
