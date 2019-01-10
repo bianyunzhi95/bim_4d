@@ -1,0 +1,75 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+Manage Projects
+{% endblock %}
+{% block navbar %}
+{{ nav.mynavbar.render(renderer='inverted') }}
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h1>Projects</h1>
+            <div class="list-group">
+                {% for project in projects %}
+                    {% if project['id']==project_id %}
+                        <a href="/accept/{{project['id']}}" class="list-group-item active">{{project['title']}}</a>
+                    {% else %}
+                        <a href="/accept/{{project['id']}}" class="list-group-item">{{project['title']}}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% if images is not none %}
+                <h3>Images</h3>
+                <div class="list-group">
+                    {% for image in images %}
+                        <a class="btn btn-info" href="{{ url_for('static', filename='upload/img/%s'%image) }}" class="list-group-item">{{image}}</a>
+                        <img style="max-width:200pt; max-height: 200pt;" src="{{ url_for('static', filename='upload/img/%s'%image) }}" class="list-group-item">
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if files is not none %}
+                <h3>Files</h3>
+                <div class="list-group">
+                    {% for file in files %}
+                        <a class="btn btn-info" href="{{ url_for('static', filename='upload/file/%s'%file) }}" class="list-group-item">{{file}}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-sm-6">
+        {% if id is none %}
+            <div class="alert alert-warning" role="alert">Please select project to see details.</div>
+        {% else %}
+            {% if info is not none %}
+                <div class="alert alert-success" role="alert">{{ info }}</div>
+            {% endif %}
+            <form method="POST" action="/accept/{{project_id}}" autocomplete="off">
+                <dl>
+                    {{ wtf.quick_form(form) }}
+                    <input class="btn btn-primary" type="submit" value="Update">
+                    {% if not accepted %}
+                    <a class="btn" href="/accept/accept/{{project_id}}">Accept</a>
+                    {% else %}
+                        {% if not history %}
+                        <a class="btn" href="/accept/addhistory/{{project_id}}">Move To History</a>
+                        {% else %}
+                        <a class="btn" href="/accept/removehistory/{{project_id}}">Remove From History</a>
+                        {% endif %}
+                    {% endif %}
+                    {% if not history %}
+                        <a class="btn" href="/accept/del/{{project_id}}">Delete</a>
+                    {% endif %}
+                </dl>
+            </form>
+        {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}

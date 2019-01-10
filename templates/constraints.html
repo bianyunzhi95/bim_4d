@@ -1,0 +1,46 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+Project Constraints
+{% endblock %}
+
+{% block navbar %}
+{{ nav.mynavbar.render(renderer='inverted') }}
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<div class="container">
+    <br>
+    <p align="middle" style="font-size: 22pt; text-align:center;">Constraints</p>
+    <p align="middle" style="font-size: 18pt; text-align:center; font-style: italic;">Time</p>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Procurement: </p>
+    <p>Due consideration to be given to the type of procurement method used for the 4D BIM construction project and the attributing factors that may be associated to the success of construction management. All external influences involved in the construction process and technical systems, which include the attributing factors used to measure the current economic environment, the economic status of all stakeholders involved, the political environment and/or industrial relations.</p>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Resource control: </p>
+    <p>Due consideration given to the top down management strategy and the available means of tracking sub-contracting resources such as labour, materials and/or finances, between activities. The restrictions of resource allocation, which lead to decision-making for construction management. The integrated approach available to the 4D BIM project and the attributing factors within the project management structure, which may influence the required degree of control of resources and predict resource overlaps within the project schedule and the formulated approach used for construction activities and the allocation of the resources among activities.</p>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Site logistics: </p>
+    <p>Due consideration to be given to the project landscape and the associated constraints of the workspace. This is determined by considering the ability to utilize the characteristics of the workspace to optimize efficiency and ensure against confined space conflict, which may include resource control. The ability to reveal the visual construction process and determine the inter-dependencies of time, space and resources within the site environment. This may include the ability to effectively implement tracking algorithms and the use of tracking technology to detect the movement of personnel, materials and equipment. Which can lead to better decision-making for design development, schedule estimation and construction tasks including; resource allocation and site safety.</p>
+    <br>
+    <p align="middle" style="font-size: 18pt; text-align:center; font-style: italic;">Cost</p>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Bill of Quantities: </p>
+    <p>Due consideration to be given to the cost estimation process involved in the 4D BIM project as well as the project feasibility study and the guidelines from which to implement a 4D BIM software application. The means available of continuous and dynamic resource control to predict, track, manage and verify changes throughout the lifecycle of the project. Also providing a means to establish a checklist template to ensure productivity and pre-determined deviation parameters within the 4D BIM construction management structure.</p>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Business transparency: </p>
+    <p>Due consideration to be given to the procurement method used and all external influences on the construction process, including social, political, and technical systems. The attributes used to measure this factor are economic, and the industrial relations environment. The measure of requirement needed to make known the complexity of project management at each phase of the 4D BIM project lifecycle and the integrated approach used. The required collaborative platform for each stakeholder involved and the importance to which they influence the project. The need to provide owners, designers, construction managers, contractors and the public etc. up to date assurances. The legal obligations outside of the care of duty and who this applies to. Intellectual property (IP) rites and control of the asset information model (AIM) and all 4D BIM information as stipulated in the EIR.</p>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Return on Investment (ROI): </p>
+    <p>Due consideration given to the business idea, the number of investors and financial implications and penalties if the scheduled productivity measurements aren’t maintained. The financial investment requirements of all project stakeholders and requisite dividends for investors. The requirements of the 4D BIM software application to generate and/or manipulate time, cost and/or quality to enable intuitive successful CM throughout the projects lifecycle. The environmental influences on the project and the legal requirements to maintain a fixed rate of carbon emissions and waste production throughout the project lifecycle to include the requirements of the operation and maintenance of the built asset for the end user.</p>
+    <br>
+    <p align="middle" style="font-size: 18pt; text-align:center; font-style: italic;">Quality</p>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">4D BIM knowledge: </p>
+    <p>Due consideration to be given to the 4D BIM capabilities of all stakeholders within the project, the strategies used to identify the 4D BIM previous experience and knowledge of all stakeholders for the representation and analyses of the 4D BIM project, which is validated by sector professionals. The Employers information requirements (EIR) within the BIM management structure is to require employee’s to provide proof of BIM knowledge and experience (clc BIM capabilities). To provide a collaborative environment between all project stakeholders it is essential to establish the 4D BIM knowledge and practical experience of those involved. To guarantee the dynamic circulation of consistent and accurate data it is a fundamental requirement that those involved understand what they are looking at.</p>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Resource planning: </p>
+    <p>Due consideration to be given to the resources available, this may include man power from the top down, project management, contractors and sub-contractors availability and/or experience, materials and plant availability. Clash detection throughout the life-cycle of a project used in each phase, as detailed in the planning process (relative to current and national building control standards). The decision-making involved in the productive use of resources from a planning perspective and the construction supply chain management (CSCM) involved in the 4D BIM project.</p>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Stakeholder involvement: </p>
+    <p>Due consideration to be given to the stakeholder-related factors attributing to a 4D BIM project. Stakeholder’s influence in defining schedule, cost, scope, risk mitigation and project management. This may include: stakeholders involvement and the degree of influence on project procedures and experience and knowledge of a 4D BIM project. Stakeholder confidence in the project management team, risk management and the current insurance against project failure.</p>
+    <br>
+    <br>
+    <br>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+{% endblock %}

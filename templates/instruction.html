@@ -1,0 +1,77 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+Improving Construction Management with 4D BIM
+{% endblock %}
+
+{% block navbar %}
+{{ nav.mynavbar.render(renderer='inverted') }}
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<div class="container">
+    <br>
+    <p align="middle" style="font-size: 22pt; text-align: center;">Design</p>
+    <p align="middle" style="font-size: 18pt; font-style: italic; text-align: center;">Successful Construction Management</p>
+    <p style="font-size:14pt; font-weight: bold;">Improving Construction Management with 4D BIM</p>
+    <ul>
+        <p>This offers an overview of construction management through the use of 4D BIM technology, to achieve a measure of success to a CM project.</p>
+    </ul>
+    <br>
+    <p style="font-size: 18pt; font-style: italic; text-align: center;">Best Practice 4D BIM</p>
+    <p style="font-size:14pt; font-weight: bold;">Best Practice 4D BIM Tool</p>
+    <ul>
+        <p>This shows the evaluation used to assess the suitability of a 4D BIM software application for a specific 4D BIM project. It is necessary to determine the various characteristics of a number of 4D BIM applications (for the purpose of this analysis, three have been chosen), which an organisation may require to facilitate the success of a 4D BIM CM project. This analysis incorporates the development of a w.w.w. based computer programme to store previous decisions made by 4D BIM professionals, with the aim of sharing astute knowledge established from previous 4D BIM applications and their ability to mitigate risks, based on a number of project constraints.</p>
+    </ul>
+    <p style="font-size:14pt; font-weight: bold;">Explained</p>
+    <ul>
+        <p>The information provided is a guide showing a detailed structure of the essential elements involved for this analytical decision process used when using this system to select a 4D BIM software application for a specific CM project. A mock-up public sector 4D BIM project is shown, which has been created for the purpose of this analysis showing the construction projects set of constraints. This guide can also be downloaded as an xls. file, from a download facility at the bottom of this page.</p>
+    </ul>
+    <p style="font-size:14pt; font-weight: bold;">Project Constraints</p>
+    <ul>
+        <p>The information provided is a guide to be used to determine a defined set of appropriate 4D BIM project constraints, which best mirrors their project. This provides both the user looking for a recommendation or a 4D BIM professional offering a recommendation the information from, which to associate their project specific constraints that restrict the ability to achieve measured success. </p>
+    </ul>
+    <p style="font-size:14pt; font-weight: bold;">4D BIM Attributes</p>
+    <ul>
+        <p>The information provided is a guide defining the requirements of each attribute of a 4D BIM software application.</p>
+    </ul>
+    <p style="font-size:14pt; font-weight: bold;">Planned Outputs</p>
+    <ul>
+        <p>The information provided is a guide relating to the and requirements from, which an organisation/end user can associate a degree of success to a 4D BIM project associated with the use of a 4D BIM software application and each of its attributes.</p>
+    </ul>
+    <br>
+    <p style="font-size: 18pt; font-style: italic; text-align: center;">Decision Support System Instructions</p>
+    <p style="font-size:14pt; font-weight: bold;">Decision Support System: Recommendation</p>
+    <ul>
+        <p>This enables a user requiring a recommendation for, which 4D BIM software application (synchro, navisworks or asta powerproject) is best suited to their project, based on that projects specific set of constraints. Someone seeking a recommendation is asked to define a planned project’s set of specific constraints. If a suitable match(s) is found within the DSS containing a number of archived projects (a suitable match will consist of a project with an identical set of defined CM constraints).</p>
+        <br>
+        <p>A recommendation consists of score ratings of between 0 – 10, offered for each attribute of the 4D BIM software application. The score rating of an attribute is given by a 4D BIM professional, which is established on how the given attribute was used to improve CM within the 4D BIM project that they were involved with. When recommendations of two or three of the 4D BIM software applications is given, the user can make a decision defined by country, city and/or local authority of the CM project. A download facility is provided with the recommendation, which may contain files and/or images, also offered by the 4D professional who provided score ratings for the 4D software application.</p>
+        <br>
+        <p>There are two links, which accompany a recommendation, directing a user to answer a survey. A user is encouraged to offer their opinions on the current and proposed methods used when choosing a 4D BIM software application, the 4D BIM DSS itself and the users views on the role that 4D BIM plays in CM. There are a set of questions with two different ways to answer, i.e. multi-choice selection and open-ended answers. Allowing a user to choose to answer one or both methods of answering.</p>
+    </ul>
+    <br>
+    <p style="font-size:14pt; font-weight: bold;">Decision Support System: Add project</p>
+    <ul>
+        <p>A 4D BIM professional is asked to provide information regarding a specific 4D BIM project, which they have been involved with. The information required will include: project title, project location defined by country, city and local authority, professional involvement, date of project completion, 4D BIM software application used (synchro, navisworks or asta powerproject), software application version and a contact email. By selecting the add button at the bottom of the page, the 4D BIM professional’s project details are automatically emailed to the administration to verify the projects legitimacy (this information, except the email address will appear with a recommendation).</p>
+    </ul>
+    <br>
+    <p style="font-size:14pt; font-weight: bold;">Decision Support System: Score project</p>
+    <ul>
+        <p>When a project’s legitimacy has been validated the professional will be issued a username and password via email. The professional can use these details by selecting the log in option from the drop down menu. They have an option to change these log in details by selecting the change profile details, when they are logged in. The professional has the option to add more projects using their log in details. When the account is initiated, the 4D BIM professional   the ability to give project specific score ratings for each of the 4D BIM software applications attributes and each attribute’s ability to improve CM.</p>
+        <br>
+        <p>An upload facility is provided and the 4D BIM professional is invited to provide images and/or files, which are a means of explaining the score rating given to the attribute based on their involvement in the project. Images and/or files can be uploaded by selecting the upload button, selecting the upload button a second time will store the selection in a visible storage space, used to store the uploaded files. There is in option to remove, by highlighting each of the images and/or files and selecting the remove button.</p>
+        <br>
+        <p>There are four links which accompany the 4D BIM professionals score ratings, directing them to answer a number of surveys. </p>
+        <p>The first set of links enables the 4D BIM professional to offer their opinions on the current and proposed methods used when choosing a BIM software application and the 4D BIM DSS. There are a set of questions, with two different ways to answer, i.e. multi-choice selection and open-ended answers. Allowing the 4D professional to choose to answer one or both methods of answering. multi-choice and/or open-ended.</p>
+        <br>
+        <p>The second set of links enables the 4D BIM professional to offer judgement and to provide feedback, regarding their opinions on the 4D BIM software application used for the project that they were involved with and its ability to improve CM. The same methods to answer is used as before.</p>
+    </ul>
+    <br>
+    <br>
+    <br>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+{% endblock %}

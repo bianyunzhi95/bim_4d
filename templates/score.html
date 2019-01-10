@@ -1,0 +1,74 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+Score Project
+{% endblock %}
+{% block navbar %}
+{{ nav.mynavbar.render(renderer='inverted') }}
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h1>Projects</h1>
+            <div class="list-group">
+                {% for project in projects %}
+                    {% if project['id']==project_id %}
+                        <a href="/score/{{project['id']}}" class="list-group-item active">{{project['title']}}</a>
+                    {% else %}
+                        <a href="/score/{{project['id']}}" class="list-group-item">{{project['title']}}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% if images is not none %}
+                <h3>Images</h3>
+                <div class="list-group">
+                    {% for image in images %}
+                        <a class="btn btn-info" href="{{ url_for('static', filename='upload/img/%s'%image) }}" class="list-group-item">{{image}}</a>
+                        <img style="max-width:200pt; max-height: 200pt;" src="{{ url_for('static', filename='upload/img/%s'%image) }}" class="list-group-item">
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if files is not none %}
+                <h3>Files</h3>
+                <div class="list-group">
+                    {% for file in files %}
+                        <a class="btn btn-info" href="{{ url_for('static', filename='upload/file/%s'%file) }}" class="list-group-item">{{file}}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if project_id is not none %}
+            <p>The first link directs the 4D BIM professional to a series of questions, with a choice of multi-choice answers:</p>
+            <a href="https://www.surveymonkey.com/r/2XG8VNJ">4D BIM Professional's opinions of current & proposed methods of the 4D BIM Decision Support System - Multiple choice</a>
+            <p>The second link directs the 4D BIM professional to a series of open ended questions.</p>
+            <a href="https://www.surveymonkey.com/r/V3BT3FC">4D BIM Professional opinions of current & proposed methods of the 4D BIM Decision Support System - Questions</a>
+            <p>The second set of links enables the 4D BIM professional to offer judgement and to provide feedback, regarding their opinions on the 4D BIM software application used for the project that they were involved with and its ability to improve CM.</p>
+            <p>The third link directs the 4D BIM professional to a series of questions with multi-choice answers.:</p>
+            <a href="https://www.surveymonkey.com/r/2YKV8RD">4D BIM Professional's opinions of current & proposed methods of the 4D BIM Decision Support System - Multiple choice</a>
+            <p>The fourth link directs the 4D BIM professional to a series of open ended questions.</p>
+            <a href="https://www.surveymonkey.com/r/2D6LL7G">4D BIM Professional's opinions of the influence of 4D BIM on improving construction management. - Questions</a>
+            {% endif %}
+        </div>
+        <div class="col-sm-6">
+        {% if project_id is none %}
+            <div class="alert alert-warning" role="alert">Please select project to score</div>
+        {% else %}
+            {% if info is not none %}
+                <div class="alert alert-success" role="alert">{{ info }}</div>
+            {% endif %}
+            <form method="POST" action="/score/{{project_id}}" autocomplete="off" enctype="multipart/form-data">
+                <dl>
+                    {{ wtf.quick_form(form) }}
+                    <input class="btn btn-primary" type="submit" value="Update">
+                </dl>
+            </form>
+        {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}

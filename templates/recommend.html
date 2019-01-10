@@ -1,0 +1,80 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+Recommendation
+{% endblock %}
+{% block navbar %}
+{{ nav.mynavbar.render(renderer='inverted') }}
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+        {% if id is none %}
+            <div class="alert alert-warning" role="alert">Please select project to score</div>
+        {% else %}
+            <h3>Project Specific Set of Restrictions</h3>
+            <form method="POST" action="/recommend" autocomplete="off">
+                <dl>
+                    {{ wtf.quick_form(form) }}
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                </dl>
+            </form>
+        {% endif %}
+        </div>
+        <div class="col-sm-6">
+            <div class="list-group">
+                {% if projects is none %}
+                    <p>There isn't any recommended projects.</p>
+                {% else %}
+                    {% for project in projects %}
+                        <div class="alert alert-success" role="alert">
+                            <h3>{{project['title']}}</h3>
+                            <h4>{{software_names[project['application']]}} {{software_names[project['version']]}}</h4>
+                            <p>Date of project: {{project['date_of_project']}}</p>
+                            <p>Project location: {{project['local_authority']}}, {{project['city']}}, {{project['country']}}</p>
+                            <p>Clash detection functionality: {{project['attribute_ratings'][0]}}</p>
+                            <p>Visualisation: {{project['attribute_ratings'][1]}}</p>
+                            <p>Discreet event simulation: {{project['attribute_ratings'][2]}}</p>
+                            <p>Ease of use: {{project['attribute_ratings'][3]}}</p>
+                            <p>Collaboration funcionality: {{project['attribute_ratings'][4]}}</p>
+                            <p>Asset Management: {{project['attribute_ratings'][5]}}</p>
+                            <p>Payment structure (Lifecycle cost): {{project['attribute_ratings'][6]}}</p>
+                            <p>Resource management: {{project['attribute_ratings'][7]}}</p>
+                            <p>Schedule vs actual WIP functionality: {{project['attribute_ratings'][8]}}</p>
+                            {% if project['images']|length != 0 %}
+                                <h4>Images</h4>
+                                <div class="list-group">
+                                    {% for image in project['images'] %}
+                                        <a class="btn btn-info" href="{{ url_for('static', filename='upload/img/%s'%image) }}" class="list-group-item">{{image}}</a>
+                                        <img style="max-width:200pt; max-height: 200pt;" src="{{ url_for('static', filename='upload/img/%s'%image) }}" class="list-group-item">
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            {% if project['files']|length != 0 %}
+                                <h4>Files</h4>
+                                <div class="list-group">
+                                    {% for file in project['files'] %}
+                                        <a class="btn btn-info" href="{{ url_for('static', filename='upload/file/%s'%file) }}" class="list-group-item">{{file}}</a>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    {% if projects|length != 0 %}
+                    <p>The first link directs the user to a series of questions, with a choice of multi-choice answers:</p>
+                    <a href="https://www.surveymonkey.com/r/SHFLX9Z">User of the 4D BIM Decision Support System opinions of current & proposed method - Multiple Choice</a>
+                    <p>The second link directs the user to a series of open ended questions.</p>
+                    <a href="https://www.surveymonkey.com/r/2XG8VNJ">User of the 4D BIM Decision Support System opinions of current & proposed methods – Questions.</a>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}

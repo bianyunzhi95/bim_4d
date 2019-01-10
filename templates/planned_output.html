@@ -1,0 +1,136 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+Planned Outputs
+{% endblock %}
+
+{% block navbar %}
+{{ nav.mynavbar.render(renderer='inverted') }}
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<div class="container">
+    <br>
+    <p align="middle" style="font-size: 22pt; text-align:center;">Planned Outputs</p>
+    <p align="middle" style="font-size: 18pt; text-align:center; font-style: italic;">Management</p>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Data Management</p>
+    <p style="font-style: italic;">Planned outputs from the use of the 4D BIM software application:</p>
+    <ul>
+        <li>collaborative production of an organisations archive to enable a method of continuous improvement</li>
+        <li>integrated project delivery methodology</li>
+        <li>integrated process of data collection for facility management (FM) purposes</li>
+        <li>systematic project delivery methods</li>
+        <li>project change management strategies</li>
+        <li>information consistency</li>
+        <li>key performance indicators (KPI)</li>
+    </ul>
+    <br>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Resource Management</p>
+    <p style="font-style: italic;">Planned outputs from the use of the 4D BIM software application:</p>
+    <ul>
+        <li>integrated 4D BIM process simulation model (used to address resource-constrained scheduling problems)</li>
+        <li>managerial strategic alternatives</li>
+        <li>optimised resource allocation</li>
+        <li>energy efficiency</li>
+        <li>lean production</li>
+        <li>reliable prediction of productivity dynamics</li>
+        <li>tracking resources in computer vision (referring to locating moving objects in 2D or 3D across time)</li>
+    </ul>
+    <br>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Risk Management</p>
+    <p style="font-style: italic;">Planned outputs from the use of the 4D BIM software application:</p>
+    <ul>
+        <li>collaborative environment</li>
+        <li>virtual and interactive digital environment</li>
+        <li>identify, analyse evaluate and response</li>
+        <li>uncertainty measured quantitatively and qualitatively to assess the potential impact of the risk</li>
+        <li>evaluation of risks with high probabilities and financial consequences</li>
+        <li>training site workers to identify on- site safety risks</li>
+        <li>simulating on-site potential hazards</li>
+    </ul>
+    <br>
+    <br>
+    <p align="middle" style="font-size: 18pt; text-align:center; font-style: italic;">Technical</p>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Collaboration</p>
+    <p style="font-style: italic;">Planned outputs from the use of the 4D BIM software application:</p>
+    <ul>
+        <li>discipline collaboration network</li>
+        <li>facility to avoid disputes and mitigation</li>
+        <li>visualised construction plans and processes</li>
+        <li>progress monitoring, quality control, operation analysis</li>
+        <li>just in time and lean principles</li>
+        <li>multi- disciplinary aligning of work tasks</li>
+        <li>real-time warning of construction site safety issues</li>
+        <li>synchronised coordination of sub-contractors</li>
+    </ul>
+    <br>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Quality assurance</p>
+    <p style="font-style: italic;">Planned outputs from the use of the 4D BIM software application:</p>
+    <ul>
+        <li>identify potential quality risks</li>
+        <li>identify potential disputes</li>
+        <li>tracking and managing tasks</li>
+        <li>reduced material waste</li>
+        <li>greater design flexibility</li>
+        <li>identify quality deviations</li>
+        <li>development of containment strategies</li>
+    </ul>
+    <br>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Visualisation</p>
+    <p style="font-style: italic;">Planned outputs from the use of the 4D BIM software application:</p>
+    <ul>
+        <li>data rich views</li>
+        <li>dynamic visualisation</li>
+        <li>predict potential safety hazards</li>
+        <li>reduced waste</li>
+        <li>secure investment</li>
+        <li>lean construction management</li>
+        <li>competitive tendering capabilities</li>
+    </ul>
+    <br>
+    <br>
+    <p align="middle" style="font-size: 18pt; text-align:center; font-style: italic;">Value</p>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Asset Management</p>
+    <p style="font-style: italic;">Planned outputs from the use of the 4D BIM software application:</p>
+    <ul>
+        <li>development of asset information model</li>
+        <li>life cycle management system (LMS)</li>
+        <li>proactive planning approach based on environmental and cultural restrictions</li>
+        <li>proactive planning approach based on the surrounding landscape</li>
+        <li>reduced operating costs and efficient use of the asset</li>
+        <li>safety management e.g. emergency services access</li>
+        <li>intuitive cognitive data updates</li>
+    </ul>
+    <br>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Cost control</p>
+    <p style="font-style: italic;">Planned outputs from the use of the 4D BIM software application:</p>
+    <ul>
+        <li>design validation</li>
+        <li>consistent  and accurate data collection</li>
+        <li>development of risk probability</li>
+        <li>tracking and managing changes</li>
+        <li>dynamic quantity data</li>
+        <li>continuous 5D simulations in real-time</li>
+        <li>optimisation of dynamic up-dates of planned vs actual construction progress</li>
+    </ul>
+    <br>
+    <p style="font-size: 14pt; font-weight: bold; text-align: center;">Earned value</p>
+    <p style="font-style: italic;">Planned outputs from the use of the 4D BIM software application:</p>
+    <ul>
+        <li>cognitive design validation</li>
+        <li>continuous update and review of actual vs planned WIP reports</li>
+        <li>integration of intuitive productivity requirements</li>
+        <li>regular evaluation methods to assess 4D BIM performance i.e. organisation and management, data collection and analysis</li>
+        <li>production of technical strategies to facilitate efficient and productive use of resources</li>
+        <li>integration of multi-discipline WIP reports</li>
+        <li>continuity of information flow</li>
+    </ul>
+    <br>
+    <br>
+    <br>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+{% endblock %}

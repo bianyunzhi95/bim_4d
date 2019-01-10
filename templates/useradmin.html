@@ -1,0 +1,50 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+Manage Users
+{% endblock %}
+{% block navbar %}
+{{ nav.mynavbar.render(renderer='inverted') }}
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h1>Users</h1>
+            <div class="list-group">
+                {% for user in users %}
+                    {% if user.id==user_id %}
+                        <a href="/useradmin/{{user['id']}}" class="list-group-item active">{{user['email']}}</a>
+                    {% else %}
+                        <a href="/useradmin/{{user['id']}}" class="list-group-item">{{user['email']}}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-sm-6">
+        {% if user_id is none %}
+            <div class="alert alert-warning" role="alert">Please select user to modify profile</div>
+        {% else %}
+            {% if info is not none %}
+                <div class="alert alert-success" role="alert">{{ info }}</div>
+            {% endif %}
+            <form method="POST" action="/useradmin/{{user_id}}" autocomplete="off">
+                <dl>
+                    {{ wtf.quick_form(form) }}
+                    <input class="btn btn-primary" type="submit" value="Update">
+                    <input class="btn" type="submit" formaction="add" value="Add User"/>
+                    {% if user_id is not none and current_user.id != user_id %}
+                        <a class="btn" href="/useradmin/delete/{{user_id}}">Delete User</a>
+                    {% endif %}
+                </dl>
+            </form>
+        {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}
