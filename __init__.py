@@ -786,13 +786,13 @@ def mynavbar():
             name = 'User'
         items.append(Subgroup(name,
                               View('Edit Profile', 'user.edit_user_profile'),
-                              View('Logout', 'user.logout')))
+                              View('Log out', 'user.logout')))
     else:
         items.append(Subgroup('Decision Support System',
                               View('Recommendation', 'recommend'),
                               View('Add Project', 'add')))
-        items.append(Subgroup('Administration',
-                              View('Login', 'user.login')))
+        items.append(Subgroup('Log in',
+                              View('Log in', 'user.login')))
 
     return Navbar(*items)
 
