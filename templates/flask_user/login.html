@@ -22,7 +22,7 @@
                 {% endif %}
             </div>
         </div>
-        {{ field(class_='form-control', tabindex=110) }}
+        {{ field(class_='form-control', tabindex=110, autocomplete='nothing') }}
         {% if field.errors %}
             {% for e in field.errors %}
                 <p class="help-block">{{ e }}</p>

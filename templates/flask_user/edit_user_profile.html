@@ -4,7 +4,7 @@
 {% from "flask_user/_macros.html" import render_field, render_checkbox_field, render_submit_field %}
 <h1>{%trans%}User profile{%endtrans%}</h1>
 
-<form action="" method="POST" class="form" role="form">
+<form action="" method="POST" class="form" role="form" autocomplete="off">
     {{ form.hidden_tag() }}
     {% for field in form %}
         {% if not field.flags.hidden %}

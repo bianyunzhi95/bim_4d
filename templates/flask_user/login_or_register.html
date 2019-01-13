@@ -14,7 +14,7 @@
 
     {# Username or Email #}
     {% set field = login_form.username if user_manager.USER_ENABLE_USERNAME else login_form.email %}
-    {{ render_field(field, tabindex=110) }}
+    {{ render_field(field, tabindex=110, autocomplete='nothing') }}
 
     {# Password #}
     {{ render_field(login_form.password, tabindex=120) }}
