@@ -23,6 +23,7 @@ from email.mime.text import MIMEText
 app_name = '4D BIM'
 projects = {}
 software_names = ['Synchro Pro', 'Asta PowerProject', 'Navisworks Manage']
+base_dir = os.path.dirname(__file__)
 
 
 # Class-based application configuration
@@ -164,14 +165,14 @@ def max_score(lst):
 
 def load_projects():
     global projects
-    if os.path.exists(os.path.dirname(__file__) + '/projects.json'):
-        with open(os.path.dirname(__file__) + '/projects.json', 'r') as fp:
+    if os.path.exists(base_dir + '/projects.json'):
+        with open(base_dir + '/projects.json', 'r') as fp:
             projects = json.load(fp)
 
 
 def save_projects():
     global projects
-    with open(os.path.dirname(__file__) + '/projects.json', 'w') as fp:
+    with open(base_dir + '/projects.json', 'w') as fp:
         json.dump(projects, fp)
 
 
@@ -462,7 +463,7 @@ def score(project_id):
         form.before_files.choices = [(x, projects[project_id]['files'][x]) for x in range(len(projects[project_id]['files']))]
 
         for ind in form.before_images.data[::-1]:
-            os.remove('static/upload/img/'+projects[project_id]['images'][ind])
+            os.remove(base_dir + '/static/upload/img/'+projects[project_id]['images'][ind])
             del projects[project_id]['images'][ind]
 
         filenames = []
@@ -471,7 +472,7 @@ def score(project_id):
         projects[project_id]['images'] += filenames
 
         for ind in form.before_files.data[::-1]:
-            os.remove('static/upload/file/'+projects[project_id]['files'][ind])
+            os.remove(base_dir + '/static/upload/file/'+projects[project_id]['files'][ind])
             del projects[project_id]['files'][ind]
 
         filenames = []
@@ -593,7 +594,7 @@ def accept(project_id):
         form.before_files.choices = [(x, projects[project_id]['files'][x]) for x in range(len(projects[project_id]['files']))]
 
         for ind in form.before_images.data[::-1]:
-            os.remove('static/upload/img/'+projects[project_id]['images'][ind])
+            os.remove(base_dir + '/static/upload/img/'+projects[project_id]['images'][ind])
             del projects[project_id]['images'][ind]
 
         filenames = []
@@ -602,7 +603,7 @@ def accept(project_id):
         projects[project_id]['images'] += filenames
 
         for ind in form.before_files.data[::-1]:
-            os.remove('static/upload/file/'+projects[project_id]['files'][ind])
+            os.remove(base_dir + '/static/upload/file/'+projects[project_id]['files'][ind])
             del projects[project_id]['files'][ind]
 
         filenames = []
