@@ -357,7 +357,7 @@ def add():
             'files': []
         }
         save_projects()
-        send_email("4dbimdecisions@gmail.com", projects[max_id+1])
+        send_email("4dbimdecision@gmail.com", projects[max_id+1])
 
         form.reset()
         return render_template('add.html',
