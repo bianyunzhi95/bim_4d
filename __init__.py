@@ -49,8 +49,8 @@ class ConfigClass(object):
     USER_EMAIL_SENDER_NAME = USER_APP_NAME
     USER_EMAIL_SENDER_EMAIL = "noreply@example.com"
 
-    UPLOADED_IMAGES_DEST = 'static/upload/img'
-    UPLOADED_FILES_DEST = 'static/upload/file'
+    UPLOADED_IMAGES_DEST = base_dir + '/static/upload/img'
+    UPLOADED_FILES_DEST = base_dir + '/static/upload/file'
 
 
 # Create Flask app load app.config
