@@ -4,7 +4,7 @@
 {% from "flask_user/_macros.html" import render_field, render_checkbox_field, render_submit_field %}
 <h1>{%trans%}Sign in{%endtrans%}</h1>
 
-<form action="" method="POST" class="form" role="form">
+<form action="" method="POST" class="form" role="form" autocomplete="off">
     {{ form.hidden_tag() }}
 
     {# Username or Email field #}
@@ -22,7 +22,7 @@
                 {% endif %}
             </div>
         </div>
-        {{ field(class_='form-control', tabindex=110, autocomplete='nothing') }}
+        {{ field(class_='form-control', tabindex=110) }}
         {% if field.errors %}
             {% for e in field.errors %}
                 <p class="help-block">{{ e }}</p>
