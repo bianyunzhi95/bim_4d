@@ -32,7 +32,7 @@ Recommendation
                         <div class="alert alert-success" role="alert">
                             <h3>{{project['title']}}</h3>
                             <h4>{{software_names[project['application']]}} {{software_names[project['version']]}}</h4>
-                            <p>Date of project: {{project['date_of_project']}}</p>
+                            <p>Date of project completion: {{project['date_of_project']}}</p>
                             <p>Project location: {{project['local_authority']}}, {{project['city']}}, {{project['country']}}</p>
                             <p>Clash detection functionality: {{project['attribute_ratings'][0]}}</p>
                             <p>Visualisation: {{project['attribute_ratings'][1]}}</p>
@@ -43,6 +43,7 @@ Recommendation
                             <p>Payment structure (Lifecycle cost): {{project['attribute_ratings'][6]}}</p>
                             <p>Resource management: {{project['attribute_ratings'][7]}}</p>
                             <p>Schedule vs actual WIP functionality: {{project['attribute_ratings'][8]}}</p>
+                            <p>Aggregate score: {{project['aggregate_score']}}</p>
                             {% if project['images']|length != 0 %}
                                 <h4>Images</h4>
                                 <div class="list-group">

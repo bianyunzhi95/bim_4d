@@ -199,7 +199,7 @@ class ProjectForm(FlaskForm):
     city = StringField('City', render_kw={'autocomplete': 'nothing'})
     local_authority = StringField('Local Authority', render_kw={'autocomplete': 'nothing'})
     involvement = StringField('Individual Project Involvement', validators=[InputRequired()], render_kw={'autocomplete': 'nothing'})
-    date_of_project = DateField('Date of Project', id='date_of_project', format='%Y-%m-%d', validators=[InputRequired()], render_kw={'autocomplete': 'nothing'})
+    date_of_project = DateField('Date of Project Completion', id='date_of_project', format='%Y-%m-%d', validators=[InputRequired()], render_kw={'autocomplete': 'nothing'})
     application = SelectField('4D Software Application Used', choices=[(ind, software_names[ind]) for ind in range(len(software_names))], coerce=int, render_kw={'autocomplete': 'nothing'})
     version = StringField('Software Application Version', validators=[InputRequired()], render_kw={'autocomplete': 'nothing'})
     email = StringField('E-mail', validators=[InputRequired(), Email(message='I don\'t like your email.')])
@@ -215,7 +215,7 @@ class ScoreForm(FlaskForm):
     city = StringField('City', render_kw={'readonly': True})
     local_authority = StringField('Local Authority', render_kw={'readonly': True})
     involvement = StringField('Individual Project Involvement', render_kw={'readonly': True})
-    date_of_project = DateField('Date of Project', id='date_of_project', format='%Y-%m-%d', render_kw={'readonly': True})
+    date_of_project = DateField('Date of Project Completion', id='date_of_project', format='%Y-%m-%d', render_kw={'readonly': True})
     application = NoValidationSelectField('4D Software Application Used', choices=[(ind, software_names[ind]) for ind in range(len(software_names))], coerce=int, render_kw={'readonly': True, 'disabled': True})
     version = StringField('Software Application Version', render_kw={'readonly': True})
     email = StringField('E-mail', render_kw={'readonly': True})
@@ -517,6 +517,8 @@ def recommend():
         #                                                   [(x['cm_restrictions'], x['application']) for x in projects.values() if x['history']]))
 
         prjs = [x for x in projects.values() if x['history'] and compare_list(x['cm_restrictions'], project['cm_restrictions'])]
+        for prj in prjs:
+            prj['aggregate_score'] = sum(prj['attribute_ratings'])
         return render_template('recommend.html',
                                form=form,
                                info='Scores successfully updated!',
@@ -825,7 +827,7 @@ Country: %s
 City: %s
 Local Authority: %s
 Individual Project Involvement: %s
-Date of Project: %s
+Date of Project Completion: %s
 4D Software Application Used: %s
 Software Application Version: %s
 E-mail: %s"""
