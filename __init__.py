@@ -741,7 +741,7 @@ def delete_user(user_id):
     user = User.query.get(user_id)
     db.session.delete(user)
     db.session.commit()
-    return redirect(url_for('useradmin', project_id=0))
+    return redirect(url_for('useradmin', user_id=0))
 
 
 nav = Nav()
