@@ -35,7 +35,7 @@ Manage Users
                     <input class="btn btn-primary" type="submit" value="Update">
                     <input class="btn" type="submit" formaction="add" value="Add User"/>
                     {% if user_id is not none and current_user.id != user_id %}
-                        <a class="btn" href="/useradmin/delete/{{user_id}}">Delete User</a>
+                        <a class="btn" href="/useradmin/del/{{user_id}}">Delete User</a>
                     {% endif %}
                 </dl>
             </form>
